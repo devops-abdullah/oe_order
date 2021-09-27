@@ -32,7 +32,7 @@ router.get('/:id/autoverify', function (req, res, next) {
   console.log(orderId, TOKEN);
   let config = {
     method: 'get',
-    url: `https://oeprocessingstage.shopistan.pk/orders/${ orderId }/autoverify/`,
+    url: `https://oeprocessingstage.shopistan.pk/orders/${ orderId }/autoverify`,
     headers: {
       'Authorization': `Bearer ${ TOKEN }`,
       'client_type': 'ivr'
@@ -53,7 +53,7 @@ router.get('/:id/dead', function (req, res, next) {
   console.log(orderId, TOKEN);
   let config = {
     method: 'get',
-    url: `https://oeprocessingstage.shopistan.pk/orders/${ orderId }/dead/`,
+    url: `https://oeprocessingstage.shopistan.pk/orders/${ orderId }/dead`,
     headers: {
       'Authorization': `Bearer ${ TOKEN }`,
       'client_type': 'ivr'
