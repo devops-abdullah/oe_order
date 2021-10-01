@@ -61,8 +61,8 @@ router.get('/:id/dead', function (req, res, next) {
   };
   return axios(config)
     .then(resp => {
-      console.log(resp.data)
-      res.json(resp.data);
+      console.log(resp.data);
+      res.json({data:resp.data});
     })
     .catch(e => {
       res.status(500)
