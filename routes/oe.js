@@ -41,10 +41,12 @@ router.get('/:id/autoverify', function (req, res, next) {
   return axios(config)
     .then(resp => {
       console.log(resp.data)
-      res.json(resp.data);
+      res.json({data:resp.data});
     })
     .catch(e => {
       res.status(500)
+      console.log(e.response.data);
+      res.json({data:e.response.data});
     })
 });
 
@@ -66,6 +68,8 @@ router.get('/:id/dead', function (req, res, next) {
     })
     .catch(e => {
       res.status(500)
+      console.log(e.response.data);
+      res.json({data:e.response.data});
     })
 });
 
