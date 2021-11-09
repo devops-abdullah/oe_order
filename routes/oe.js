@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let axios = require('axios');
 let FormData = require('form-data');
+let fs = require('fs');
 
 let TOKEN = null;
 let data = new FormData();
@@ -42,11 +43,13 @@ router.get('/:id/autoverify', function (req, res, next) {
     .then(resp => {
       console.log(resp.data)
       res.json({data:resp.data});
+      fs.writeFileSync("oe_response", resp.data);
     })
     .catch(e => {
       res.status(500)
       console.log(e.response.data);
       res.json({data:e.response.data});
+      fs.writeFileSync("oe_error", e.response.data);
     })
 });
 
@@ -65,11 +68,13 @@ router.get('/:id/dead', function (req, res, next) {
     .then(resp => {
       console.log(resp.data);
       res.json({data:resp.data});
+      fs.writeFileSync("oe_response", resp.data);
     })
     .catch(e => {
       res.status(500)
       console.log(e.response.data);
       res.json({data:e.response.data});
+      fs.writeFileSync("oe_error", e.response.data);
     })
 });
 
